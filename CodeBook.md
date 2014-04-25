@@ -6,15 +6,15 @@
  * File "features.txt" was loaded, then data was filtered using regular expression, so that we get the features that interest us (mean and standard deviation), containing *mean()* and *std()*. As a result two lists were formed: 1) good_features_ind - indices of those features; 2) good_features - just list of these features, we need it to set headers.
  * File "activities.txt" was loaded. This file contains activity labels corresponding to their respective indices.
  * Then two directories (test and train) were processed, in both cases same algorithm was used.
- ** Subject file was loaded.
- ** y-file containing indices of activities for each subject was loaded
- ** Next step was to merge the y-file with activities-file by index in order to get labeled each activity index for each measurement. But for some reason merged data always got sorted, even if I used paremeter "sort = FALSE", so that it became impossible to know to which measurement each row of resulting data was corresponding. So several substeps were made:
- *** Additional column with row numbers was added to data frame containing activity indices.
- *** Then the data was merged by activity indices as was planned.
- *** Finally, original order was restored by sorting the merged data by the column with original row numbers; and only column containing activity labels was stored
- ** File containing measurements was loaded, and the subset of columns that we are interested in was taken. All columns were named according their respective features.
- ** Then the dataframe was formed, containing subject and activity as first two columns, and measurements of features as rest.
- ** In the end of processing of each directory, the abovecreated dataframe was aggregated (grouped by) first two columns, and function "mean" was applied to all grouped measurements.
+     * Subject file was loaded.
+     * y-file containing indices of activities for each subject was loaded
+     * Next step was to merge the y-file with activities-file by index in order to get labeled each activity index for each measurement. But for some reason merged data always got sorted, even if I used paremeter "sort = FALSE", so that it became impossible to know to which measurement each row of resulting data was corresponding. So several substeps were made:
+         * Additional column with row numbers was added to data frame containing activity indices.
+         * Then the data was merged by activity indices as was planned.
+         * Finally, original order was restored by sorting the merged data by the column with original row numbers; and only column containing activity labels was stored
+     * File containing measurements was loaded, and the subset of columns that we are interested in was taken. All columns were named according their respective features.
+     * Then the dataframe was formed, containing subject and activity as first two columns, and measurements of features as rest.
+     * In the end of processing of each directory, the abovecreated dataframe was aggregated (grouped by) first two columns, and function "mean" was applied to all grouped measurements.
  * Dataframes for both directories was concatenated, ordered by subject, and stored in file "result.csv".
  
  ##Columns of resulting data:
